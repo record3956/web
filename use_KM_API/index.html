@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Kakao Map Example</title>
+    <script type="text/javascript"
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b7836b19ede9a930570d9fcf7718ee41"></script>
+    <!-- YOUR_APP_KEY는 발급받은 JavaScript 키로 대체해주세요. -->
+    <style>
+        #map {
+            width: 500px;
+            height: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Kakao Map Example</h1>
+    <div id="map"></div>
+    <script>
+        var container = document.getElementById('map');
+        var options = {
+            center: new kakao.maps.LatLng(37.54699, 127.09598),
+            level: 3
+        };
+        var map = new kakao.maps.Map(container, options);
+    </script>
+</body>
+
+</html>
