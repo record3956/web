@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <link rel="stylesheet" href="index.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>시험기간 계획 세우기</title>
+</head>
+
+<body>
+    <!-- 
+        시험기간 계획 세우기 페이지
+        1. 공부 시작할 날짜 입력
+        2. 어떤 과목을 공부하고 시험이 언제인지
+        3. 하루에 몇과목 공부할 건지
+        4. 공부할 날짜부터 시험까지 계획 생성한 div 출력?
+     -->
+    <header>시험기간 계획을 세웁니다.</header>
+    <section id="secOne">
+        <table id="inputTable">
+            시험정보를 입력해주세요.
+            <tr>
+                <td>
+                    과목 이름 : <input type="text" required>
+                </td>
+                <td>
+                    시험 날짜 : <input type="date" required>
+                </td>
+            </tr>
+        </table>
+        <p>
+            <!-- 테이블 행 추가 기능 -->
+            <button onclick="addRow()">
+                과목 추가
+            </button>
+            <!-- 테이블 행 삭제 기능 -->
+            <button onclick="delRow()">
+                과목 삭제
+            </button>
+        </p>
+        <!-- 
+            공부 계획 세우기 클릭 했을 때
+            1. 총 몇과목입니다 나타내고 -> 어떻게할거임?
+            2. 하루에 몇 과목씩 공부할건가요?
+            3. 모달창으로? 아니면 화면이 전환되는 느낌으로? -> 일단 출력부터 해보기
+         -->
+        <p><button onclick="nextChp()">공부 계획 세우기</button></p>
+        <!-- 여기까지 갖고있는 값
+                1. 과목이름 : testName
+                2. 시험날짜 : testDay
+                3. 시험 끝나는 날짜 : lastDay            
+            -->
+    </section>
+    <section id="secTwo">
+        <div id="secContainer">
+            <p id="secInput"></p>
+            <p>공부 언제 시작?: <input id='startGongBoo' type="date" name="startGongBoo"></p>
+            <p>하루에 몇 과목 공부하시겠어요? : <input type="number" name="many" required></p>
+            <!-- 
+                setPlanner 클릭시 setThree section이 나오면서
+                 
+                1- 테이블이 나온다
+                2- 시작날짜부터 시험이 끝나는 날짜까지 계획을 테이블에 채운다.
+
+                1.구상
+                [tr을 한 줄 만들고 insertCell을 7개까지 한다.
+                만약 7개가 넘으면 tr을 한 줄 더 만든다. 하고 다시 insertCell을 한다. 일단 이거부터.
+                ]
+
+                2.구상
+                [ex)   
+                1) 공부는 4/20일에 시작
+                2) 4/20 4/24 4/25  시험을 본다.
+                3) { (각 td의 날짜) - (현재 날짜) } / 2 = 변수
+                4)  for i in range(x<4){
+                    ` i "/" 변수 `
+                    i++ 이런식으로 셀에 기록한다. 2번 돼야한다.
+                }
+                5) 이제 예시가 적용될 수 있도록 한다.
+                4/12 기준으로 시험플랜이 적용되려면?
+                DATE객체에 대해서 공부해야될 거 같은데
+                일단 공부 시작 날짜부터 차근차근 넣어보자
+                tr A - 4/20
+                tr B - 4/25
+                tr C - 4/24
+                tr D - 4/25
+                tr E - 4/20  ]
+             -->
+            <button onclick="setPlanner()">계획표 주세요</button>
+            <button onclick="back()">뒤로가기</button>
+        </div>
+    </section>
+    <!-- 계획표 생김새 일반적인 스케줄표 처럼? 첫 행의 셀들은 날짜를 기입하고 두 번째 행들은 계획을 넣어준다.-->
+    <section id="secThree">
+        <div id="outPut">
+
+        </div>
+        <button onclick="backTwo()">뒤로가기</button>
+    </section>
+    <footer>최종 수정일 2023.04.19</footer>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
+<!-- 
+ -->
